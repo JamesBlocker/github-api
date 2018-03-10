@@ -10,10 +10,9 @@ console.log(process.env)
 app.get('/users/:username', (req, res) => {
     const options = {
         method: 'get',
-        url: `https://api.github.com/users/${req.params.username}?
-        client_id=${process.env.CLIENT_ID}&
-        client_secret=${process.env.CLIENT_SECRET}`
+        url: `https://api.github.com/users/${req.params.username}?client_id=${process.env.CLIENT_ID}&client_secret=${process.env.CLIENT_SECRET}`
     }
+
 
     httpClient(options).then((apiResponse) => {
         var name = apiResponse.data.name
